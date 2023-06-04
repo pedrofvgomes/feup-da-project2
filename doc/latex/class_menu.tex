@@ -1,0 +1,194 @@
+\hypertarget{class_menu}{}\doxysection{Menu Class Reference}
+\label{class_menu}\index{Menu@{Menu}}
+
+
+The \mbox{\hyperlink{class_menu}{Menu}} class represents a menu for interacting with the graph algorithms.  
+
+
+
+
+{\ttfamily \#include $<$menu.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_menu_ad466dd83355124a6ed958430450bfe94}{Menu}} ()
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{class_menu}{Menu}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_menu_a417a584b341928b2ec2874f650008cd7}{get\+State}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current state of the menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_ad09c27f5f1c7bd0c8116353a91d334ef}{set\+State}} (int state)
+\begin{DoxyCompactList}\small\item\em Sets the state of the menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_aec4433c456fea6bde1ec6118f9c494a7}{draw\+State}} ()
+\begin{DoxyCompactList}\small\item\em Draws the current state of the menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a75e18cb7bd999795f882017ec5e2256b}{draw\+Start\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the starting menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a7e214d9f2399070f05c11fbd4af6ef01}{draw\+Toy\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the Toy Graphs menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a57f8ba4d75a24f04fd87cb6b6e813fe7}{draw\+Real\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the Real-\/\+World Graphs menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a78616c9d4b1030e2df797963e5311d00}{draw\+Extra\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the Extra Graphs menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a657bb97a378ce10d3a12607e0e6a952b}{draw\+Algorithms\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the algorithms menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_a2e35c60b5d219c90e9dd5f799c74bd71}{read\+Data}} (const std\+::string \&filename, bool header, bool label, bool nodes, bool newgraph)
+\begin{DoxyCompactList}\small\item\em Reads data from a file and initializes the graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_menu_af9c72eefead0c7696d6e29c7719baf40}{execute\+Algorithm}} (int choice)
+\begin{DoxyCompactList}\small\item\em Executes the selected algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_menu}{Menu}} class represents a menu for interacting with the graph algorithms. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_menu_ad466dd83355124a6ed958430450bfe94}\label{class_menu_ad466dd83355124a6ed958430450bfe94}} 
+\index{Menu@{Menu}!Menu@{Menu}}
+\index{Menu@{Menu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{Menu()}{Menu()}}
+{\footnotesize\ttfamily Menu\+::\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{class_menu}{Menu}} object. 
+
+Time Complexity\+: O(1) 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_menu_a657bb97a378ce10d3a12607e0e6a952b}\label{class_menu_a657bb97a378ce10d3a12607e0e6a952b}} 
+\index{Menu@{Menu}!drawAlgorithmsMenu@{drawAlgorithmsMenu}}
+\index{drawAlgorithmsMenu@{drawAlgorithmsMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{drawAlgorithmsMenu()}{drawAlgorithmsMenu()}}
+{\footnotesize\ttfamily void Menu\+::draw\+Algorithms\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the algorithms menu. 
+
+Time Complexity\+: O(1) \mbox{\Hypertarget{class_menu_a78616c9d4b1030e2df797963e5311d00}\label{class_menu_a78616c9d4b1030e2df797963e5311d00}} 
+\index{Menu@{Menu}!drawExtraMenu@{drawExtraMenu}}
+\index{drawExtraMenu@{drawExtraMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{drawExtraMenu()}{drawExtraMenu()}}
+{\footnotesize\ttfamily void Menu\+::draw\+Extra\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the Extra Graphs menu. 
+
+Time Complexity\+: O(1) \mbox{\Hypertarget{class_menu_a57f8ba4d75a24f04fd87cb6b6e813fe7}\label{class_menu_a57f8ba4d75a24f04fd87cb6b6e813fe7}} 
+\index{Menu@{Menu}!drawRealMenu@{drawRealMenu}}
+\index{drawRealMenu@{drawRealMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{drawRealMenu()}{drawRealMenu()}}
+{\footnotesize\ttfamily void Menu\+::draw\+Real\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the Real-\/\+World Graphs menu. 
+
+Time Complexity\+: O(1) \mbox{\Hypertarget{class_menu_a75e18cb7bd999795f882017ec5e2256b}\label{class_menu_a75e18cb7bd999795f882017ec5e2256b}} 
+\index{Menu@{Menu}!drawStartMenu@{drawStartMenu}}
+\index{drawStartMenu@{drawStartMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{drawStartMenu()}{drawStartMenu()}}
+{\footnotesize\ttfamily void Menu\+::draw\+Start\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the starting menu. 
+
+Time Complexity\+: O(1) \mbox{\Hypertarget{class_menu_aec4433c456fea6bde1ec6118f9c494a7}\label{class_menu_aec4433c456fea6bde1ec6118f9c494a7}} 
+\index{Menu@{Menu}!drawState@{drawState}}
+\index{drawState@{drawState}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{drawState()}{drawState()}}
+{\footnotesize\ttfamily void Menu\+::draw\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the current state of the menu. 
+
+Time Complexity\+: O(1) \mbox{\Hypertarget{class_menu_a7e214d9f2399070f05c11fbd4af6ef01}\label{class_menu_a7e214d9f2399070f05c11fbd4af6ef01}} 
+\index{Menu@{Menu}!drawToyMenu@{drawToyMenu}}
+\index{drawToyMenu@{drawToyMenu}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{drawToyMenu()}{drawToyMenu()}}
+{\footnotesize\ttfamily void Menu\+::draw\+Toy\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the Toy Graphs menu. 
+
+Time Complexity\+: O(1) \mbox{\Hypertarget{class_menu_af9c72eefead0c7696d6e29c7719baf40}\label{class_menu_af9c72eefead0c7696d6e29c7719baf40}} 
+\index{Menu@{Menu}!executeAlgorithm@{executeAlgorithm}}
+\index{executeAlgorithm@{executeAlgorithm}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{executeAlgorithm()}{executeAlgorithm()}}
+{\footnotesize\ttfamily void Menu\+::execute\+Algorithm (\begin{DoxyParamCaption}\item[{int}]{choice }\end{DoxyParamCaption})}
+
+
+
+Executes the selected algorithm. 
+
+Time Complexity\+: O(\+V), V = number of vertices 
+\begin{DoxyParams}{Parameters}
+{\em choice} & The user\textquotesingle{}s choice of algorithm. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_menu_a417a584b341928b2ec2874f650008cd7}\label{class_menu_a417a584b341928b2ec2874f650008cd7}} 
+\index{Menu@{Menu}!getState@{getState}}
+\index{getState@{getState}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{getState()}{getState()}}
+{\footnotesize\ttfamily int Menu\+::get\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the current state of the menu. 
+
+Time Complexity\+: O(1) \begin{DoxyReturn}{Returns}
+The current state of the menu. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_menu_a2e35c60b5d219c90e9dd5f799c74bd71}\label{class_menu_a2e35c60b5d219c90e9dd5f799c74bd71}} 
+\index{Menu@{Menu}!readData@{readData}}
+\index{readData@{readData}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{readData()}{readData()}}
+{\footnotesize\ttfamily void Menu\+::read\+Data (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{bool}]{header,  }\item[{bool}]{label,  }\item[{bool}]{nodes,  }\item[{bool}]{newgraph }\end{DoxyParamCaption})}
+
+
+
+Reads data from a file and initializes the graph. 
+
+Time Complexity\+: O(n), n = number of lines in the file 
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to read data from. \\
+\hline
+{\em header} & Flag indicating whether the file has a header. \\
+\hline
+{\em label} & Flag indicating whether the file has labels. \\
+\hline
+{\em nodes} & Flag indicating whether the file represents nodes or edges. \\
+\hline
+{\em newgraph} & Flag indicating whether to create a new graph or update an existing one.\\
+\hline
+\end{DoxyParams}
+This function reads data from a CSV file and initializes the graph based on the file contents. It supports reading both node and edge information. The file format must follow the specified structure, and the data is loaded into the {\ttfamily graph} object.
+
+\begin{DoxyNote}{Note}
+If {\ttfamily newgraph} is set to true, a new graph will be created. Otherwise, the data will be added to an existing graph.
+
+This function assumes that the CSV file is properly formatted and accessible. 
+\end{DoxyNote}
+\mbox{\Hypertarget{class_menu_ad09c27f5f1c7bd0c8116353a91d334ef}\label{class_menu_ad09c27f5f1c7bd0c8116353a91d334ef}} 
+\index{Menu@{Menu}!setState@{setState}}
+\index{setState@{setState}!Menu@{Menu}}
+\doxysubsubsection{\texorpdfstring{setState()}{setState()}}
+{\footnotesize\ttfamily void Menu\+::set\+State (\begin{DoxyParamCaption}\item[{int}]{state }\end{DoxyParamCaption})}
+
+
+
+Sets the state of the menu. 
+
+Time Complexity\+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em state} & The new state. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/menu/menu.\+h\item 
+src/menu/menu.\+cpp\end{DoxyCompactItemize}

@@ -6,43 +6,12 @@ Graph::Graph(bool directed) {
     this->vertexMap = std::unordered_map<int, vertexNode>();
 }
 
-int Graph::getEdgeCount() const {
-    return this->edgeCount;
-}
 int Graph::getVertexCount() const {
     return this->vertexMap.size();
 }
 std::unordered_map<int, vertexNode> Graph::getVertices() {
     return this->vertexMap;
 }
-bool Graph::isDirected() const {
-    return this->directed;
-}
-double Graph::getLatitude(int v) {
-    return this->vertexMap[v].latitude;
-}
-double Graph::getLongitude(int v) {
-    return this->vertexMap[v].longitude;
-}
-
-std::string Graph::getLabel(int v) {
-    return this->vertexMap[v].label;
-}
-double Graph::getDistance(int v1, int v2) {
-    for(auto &e: this->vertexMap[v1].adjacent)
-        if(e.destVertex == v2)
-            return e.distance;
-
-    return 0;
-}
-
-
-void Graph::setCoordinates(int v, double latitude, double longitude) {
-    this->vertexMap[v].latitude = latitude;
-    this->vertexMap[v].longitude = longitude;
-}
-
-
 bool Graph::addVertex(int v, double latitude, double longitude, std::string label) {
     if(v < 0 || vertexMap.count(v)) return false;
 
@@ -106,7 +75,6 @@ std::vector<std::pair<int,int>> Graph::prim_mst(std::vector<int>& parent){
     return mst;
 }
 
-
 void Graph::backtrack_tsp(std::vector<int>& path, std::vector<bool>& visited, double &min_cost, double current_cost){
     if(path.size() == vertexMap.size()){
         int start = path.front();
@@ -136,13 +104,13 @@ void Graph::backtrack_tsp(std::vector<int>& path, std::vector<bool>& visited, do
 }
 
 
-void Graph::dfs(int current, const std::vector<int> &parent, std::vector<bool> &visited, std::stack<int> &cityStack, std::vector<int> &path) {
+void Graph::dfs(int current, const std::vector<int> &parent, std::vector<bool> &visited, std::stack<int> &stack, std::vector<int> &path) {
     visited[current] = true;
-    cityStack.push(current);
+    stack.push(current);
 
-    while (!cityStack.empty()) {
-        int city = cityStack.top();
-        cityStack.pop();
+    while (!stack.empty()) {
+        int city = stack.top();
+        stack.pop();
 
         // Process the city or print its order
         path.push_back(city);
@@ -150,7 +118,7 @@ void Graph::dfs(int current, const std::vector<int> &parent, std::vector<bool> &
         for (int neighbor = 0; neighbor < parent.size(); ++neighbor) {
             if (parent[neighbor] == city && !visited[neighbor]) {
                 visited[neighbor] = true;
-                cityStack.push(neighbor);
+                stack.push(neighbor);
             }
         }
     }
@@ -234,8 +202,8 @@ double Graph::triangular_approximation(){
 
     std::vector<bool> visited(vertexMap.size(), false);
     std::vector<int> path;
-    std::stack<int> cityStack;
-    dfs(0, parent, visited, cityStack, path);
+    std::stack<int> stack;
+    dfs(0, parent, visited, stack, path);
 
     return total_distance(path);
 }

@@ -1,0 +1,44 @@
+\hypertarget{menu_8h_source}{}\doxysection{menu.\+h}
+\label{menu_8h_source}\index{src/menu/menu.h@{src/menu/menu.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef FEUP\_DA\_PROJECT2\_MENU\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define FEUP\_DA\_PROJECT2\_MENU\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}../dataStructures/graph.cpp"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{12 \textcolor{keyword}{class }\mbox{\hyperlink{class_menu}{Menu}} \{}
+\DoxyCodeLine{13 \textcolor{keyword}{public}:}
+\DoxyCodeLine{18     \mbox{\hyperlink{class_menu_ad466dd83355124a6ed958430450bfe94}{Menu}}();}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_menu_a417a584b341928b2ec2874f650008cd7}{getState}}() \textcolor{keyword}{const};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_ad09c27f5f1c7bd0c8116353a91d334ef}{setState}}(\textcolor{keywordtype}{int} state);}
+\DoxyCodeLine{33 }
+\DoxyCodeLine{38     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_aec4433c456fea6bde1ec6118f9c494a7}{drawState}}();}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{44     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a75e18cb7bd999795f882017ec5e2256b}{drawStartMenu}}();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{50     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a7e214d9f2399070f05c11fbd4af6ef01}{drawToyMenu}}();}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a57f8ba4d75a24f04fd87cb6b6e813fe7}{drawRealMenu}}();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{62     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a78616c9d4b1030e2df797963e5311d00}{drawExtraMenu}}();}
+\DoxyCodeLine{63 }
+\DoxyCodeLine{68     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a657bb97a378ce10d3a12607e0e6a952b}{drawAlgorithmsMenu}}();}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{88     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_a2e35c60b5d219c90e9dd5f799c74bd71}{readData}}(\textcolor{keyword}{const} std::string\& filename, \textcolor{keywordtype}{bool} header, \textcolor{keywordtype}{bool} label, \textcolor{keywordtype}{bool} nodes, \textcolor{keywordtype}{bool} newgraph);}
+\DoxyCodeLine{89 }
+\DoxyCodeLine{95     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_menu_af9c72eefead0c7696d6e29c7719baf40}{executeAlgorithm}}(\textcolor{keywordtype}{int} choice);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97 \textcolor{keyword}{private}:}
+\DoxyCodeLine{98     \textcolor{keywordtype}{int} state;  }
+\DoxyCodeLine{99     \mbox{\hyperlink{class_graph}{Graph}} graph = \mbox{\hyperlink{class_graph}{Graph}}(\textcolor{keyword}{true});  }
+\DoxyCodeLine{100 \};}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//FEUP\_DA\_PROJECT2\_MENU\_H}}
+
+\end{DoxyCode}

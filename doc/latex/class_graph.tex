@@ -1,0 +1,327 @@
+\hypertarget{class_graph}{}\doxysection{Graph Class Reference}
+\label{class_graph}\index{Graph@{Graph}}
+
+
+The \mbox{\hyperlink{class_graph}{Graph}} class represents a graph data structure.  
+
+
+
+
+{\ttfamily \#include $<$graph.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_ada86a40948e5d5668296f8d0f994a58a}{Graph}} (bool \mbox{\hyperlink{class_graph_a3111bb6cc59aedbc4290ed1b37668336}{directed}})
+\begin{DoxyCompactList}\small\item\em Constructs a new \mbox{\hyperlink{class_graph}{Graph}} object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_ac6dcb77084447618b65514ce25bd7d2a}{get\+Vertex\+Count}} () const
+\begin{DoxyCompactList}\small\item\em Gets the number of vertices in the graph. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ int, \mbox{\hyperlink{structvertex_node}{vertex\+Node}} $>$ \mbox{\hyperlink{class_graph_a3331bc9455b815929a69a32344ee07c6}{get\+Vertices}} ()
+\begin{DoxyCompactList}\small\item\em Gets a map of all the vertices in the graph. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a0d62692ce872ecf5460a08880db2e570}{add\+Vertex}} (int v, double latitude, double longitude, std\+::string label)
+\begin{DoxyCompactList}\small\item\em Adds a new vertex to the graph. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_aed82fa2de7300b07bed38d933758b88e}{add\+Edge}} (int v1, int v2, double distance)
+\begin{DoxyCompactList}\small\item\em Adds a new edge to the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ \mbox{\hyperlink{class_graph_a13cf3efcacfb62d22e443a1146439ad8}{prim\+\_\+mst}} (std\+::vector$<$ int $>$ \&parent)
+\begin{DoxyCompactList}\small\item\em Applies Prim\textquotesingle{}s algorithm to find a minimum spanning tree of the graph. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a27557f9ada086a612c0d498a8c2b073e}{backtrack\+\_\+tsp}} (std\+::vector$<$ int $>$ \&path, std\+::vector$<$ bool $>$ \&visited, double \&min\+\_\+cost, double current\+\_\+cost)
+\begin{DoxyCompactList}\small\item\em Applies the backtracking algorithm to solve the Traveling Salesman Problem (TSP). \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a3bf9a9bb9faac4a8e8766703d3afc53d}{triangular\+\_\+approximation}} ()
+\begin{DoxyCompactList}\small\item\em Applies the Triangular Approximation algorithm to find an approximate solution for the TSP. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_graph_a5a5463b30e45d3c0d53a043159353b42}{dfs}} (int current, const std\+::vector$<$ int $>$ \&parent, std\+::vector$<$ bool $>$ \&visited, std\+::stack$<$ int $>$ \&stack, std\+::vector$<$ int $>$ \&path)
+\begin{DoxyCompactList}\small\item\em Performs a Depth-\/\+First Search (DFS) traversal of the graph. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_ac3bb5f6d7cdf028124321864cf9f217d}{are\+\_\+nodes\+\_\+connected}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em Checks if two vertices in the graph are connected by an edge. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_a8b0db3dbf1368e972e7c551f6084db62}{haversine}} (double lat1, double lon1, double lat2, double lon2)
+\begin{DoxyCompactList}\small\item\em Calculates the Haversine distance between two coordinates. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_graph_aa66282e7599c1c36f9cca5e4f87bb354}{total\+\_\+distance}} (const std\+::vector$<$ int $>$ \&path)
+\begin{DoxyCompactList}\small\item\em Calculates the total distance of a given path in the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{class_graph_a34f63bddaacbecffe75aede6dbb74d19}{nearest\+\_\+neighbor}} (int start)
+\begin{DoxyCompactList}\small\item\em Applies the Nearest Neighbor heuristic to find an approximate solution for the TSP starting from a given vertex. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_graph_a3111bb6cc59aedbc4290ed1b37668336}{directed}}
+\item 
+int \mbox{\hyperlink{class_graph_a9fa843bf71c00e4b3031e9b8802cdadf}{edge\+Count}}
+\item 
+std\+::unordered\+\_\+map$<$ int, \mbox{\hyperlink{structvertex_node}{vertex\+Node}} $>$ \mbox{\hyperlink{class_graph_a0583ecac13f1465392df14af10301edf}{vertex\+Map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_graph}{Graph}} class represents a graph data structure. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_graph_ada86a40948e5d5668296f8d0f994a58a}\label{class_graph_ada86a40948e5d5668296f8d0f994a58a}} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{bool}]{directed }\end{DoxyParamCaption})}
+
+
+
+Constructs a new \mbox{\hyperlink{class_graph}{Graph}} object. 
+
+Time Complexity\+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em directed} & Flag indicating whether the graph is directed. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_graph_aed82fa2de7300b07bed38d933758b88e}\label{class_graph_aed82fa2de7300b07bed38d933758b88e}} 
+\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Edge (\begin{DoxyParamCaption}\item[{int}]{v1,  }\item[{int}]{v2,  }\item[{double}]{distance }\end{DoxyParamCaption})}
+
+
+
+Adds a new edge to the graph. 
+
+Time Complexity\+: O(n) 
+\begin{DoxyParams}{Parameters}
+{\em v1} & The identifier of the first vertex. \\
+\hline
+{\em v2} & The identifier of the second vertex. \\
+\hline
+{\em distance} & The distance or weight of the edge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the edge was added successfully, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a0d62692ce872ecf5460a08880db2e570}\label{class_graph_a0d62692ce872ecf5460a08880db2e570}} 
+\index{Graph@{Graph}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}}
+{\footnotesize\ttfamily bool Graph\+::add\+Vertex (\begin{DoxyParamCaption}\item[{int}]{v,  }\item[{double}]{latitude,  }\item[{double}]{longitude,  }\item[{std\+::string}]{label }\end{DoxyParamCaption})}
+
+
+
+Adds a new vertex to the graph. 
+
+Time Complexity\+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em v} & The vertex identifier. \\
+\hline
+{\em latitude} & The latitude coordinate of the vertex. \\
+\hline
+{\em longitude} & The longitude coordinate of the vertex. \\
+\hline
+{\em label} & The label or name of the vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the vertex was added successfully, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_ac3bb5f6d7cdf028124321864cf9f217d}\label{class_graph_ac3bb5f6d7cdf028124321864cf9f217d}} 
+\index{Graph@{Graph}!are\_nodes\_connected@{are\_nodes\_connected}}
+\index{are\_nodes\_connected@{are\_nodes\_connected}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{are\_nodes\_connected()}{are\_nodes\_connected()}}
+{\footnotesize\ttfamily bool Graph\+::are\+\_\+nodes\+\_\+connected (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})}
+
+
+
+Checks if two vertices in the graph are connected by an edge. 
+
+Time Complexity\+: O(V + E), V = number of vertices, E = number of edges adjacent to the vertex a 
+\begin{DoxyParams}{Parameters}
+{\em a} & The identifier of the first vertex. \\
+\hline
+{\em b} & The identifier of the second vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the vertices are connected, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a27557f9ada086a612c0d498a8c2b073e}\label{class_graph_a27557f9ada086a612c0d498a8c2b073e}} 
+\index{Graph@{Graph}!backtrack\_tsp@{backtrack\_tsp}}
+\index{backtrack\_tsp@{backtrack\_tsp}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{backtrack\_tsp()}{backtrack\_tsp()}}
+{\footnotesize\ttfamily void Graph\+::backtrack\+\_\+tsp (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{path,  }\item[{std\+::vector$<$ bool $>$ \&}]{visited,  }\item[{double \&}]{min\+\_\+cost,  }\item[{double}]{current\+\_\+cost }\end{DoxyParamCaption})}
+
+
+
+Applies the backtracking algorithm to solve the Traveling Salesman Problem (TSP). 
+
+Time Complexity\+: O((V-\/1)!), V = number of vertices 
+\begin{DoxyParams}{Parameters}
+{\em path} & The output vector to store the optimal path. \\
+\hline
+{\em visited} & The state of visited vertices during the backtracking process. \\
+\hline
+{\em min\+\_\+cost} & The minimum cost of the TSP solution. \\
+\hline
+{\em current\+\_\+cost} & The current cost of the path being constructed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_a5a5463b30e45d3c0d53a043159353b42}\label{class_graph_a5a5463b30e45d3c0d53a043159353b42}} 
+\index{Graph@{Graph}!dfs@{dfs}}
+\index{dfs@{dfs}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}}
+{\footnotesize\ttfamily void Graph\+::dfs (\begin{DoxyParamCaption}\item[{int}]{current,  }\item[{const std\+::vector$<$ int $>$ \&}]{parent,  }\item[{std\+::vector$<$ bool $>$ \&}]{visited,  }\item[{std\+::stack$<$ int $>$ \&}]{stack,  }\item[{std\+::vector$<$ int $>$ \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Performs a Depth-\/\+First Search (DFS) traversal of the graph. 
+
+Time Complexity\+: O(E + V), E = number of edges, V = number of vertices 
+\begin{DoxyParams}{Parameters}
+{\em current} & The current vertex being visited. \\
+\hline
+{\em parent} & The parent vertices during the traversal. \\
+\hline
+{\em visited} & The state of visited vertices during the traversal. \\
+\hline
+{\em stack} & The stack to store the visited vertices in the order of traversal. \\
+\hline
+{\em path} & The output vector to store the path of the DFS traversal. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_graph_ac6dcb77084447618b65514ce25bd7d2a}\label{class_graph_ac6dcb77084447618b65514ce25bd7d2a}} 
+\index{Graph@{Graph}!getVertexCount@{getVertexCount}}
+\index{getVertexCount@{getVertexCount}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getVertexCount()}{getVertexCount()}}
+{\footnotesize\ttfamily int Graph\+::get\+Vertex\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the number of vertices in the graph. 
+
+Time Complexity\+: O(1) \begin{DoxyReturn}{Returns}
+The number of vertices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a3331bc9455b815929a69a32344ee07c6}\label{class_graph_a3331bc9455b815929a69a32344ee07c6}} 
+\index{Graph@{Graph}!getVertices@{getVertices}}
+\index{getVertices@{getVertices}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getVertices()}{getVertices()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ int, \mbox{\hyperlink{structvertex_node}{vertex\+Node}} $>$ Graph\+::get\+Vertices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets a map of all the vertices in the graph. 
+
+Time Complexity\+: O(1) \begin{DoxyReturn}{Returns}
+The map of vertices. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a8b0db3dbf1368e972e7c551f6084db62}\label{class_graph_a8b0db3dbf1368e972e7c551f6084db62}} 
+\index{Graph@{Graph}!haversine@{haversine}}
+\index{haversine@{haversine}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{haversine()}{haversine()}}
+{\footnotesize\ttfamily double Graph\+::haversine (\begin{DoxyParamCaption}\item[{double}]{lat1,  }\item[{double}]{lon1,  }\item[{double}]{lat2,  }\item[{double}]{lon2 }\end{DoxyParamCaption})}
+
+
+
+Calculates the Haversine distance between two coordinates. 
+
+Time Complexity\+: O(1) 
+\begin{DoxyParams}{Parameters}
+{\em lat1} & The latitude of the first coordinate. \\
+\hline
+{\em lon1} & The longitude of the first coordinate. \\
+\hline
+{\em lat2} & The latitude of the second coordinate. \\
+\hline
+{\em lon2} & The longitude of the second coordinate. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Haversine distance between the coordinates. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a34f63bddaacbecffe75aede6dbb74d19}\label{class_graph_a34f63bddaacbecffe75aede6dbb74d19}} 
+\index{Graph@{Graph}!nearest\_neighbor@{nearest\_neighbor}}
+\index{nearest\_neighbor@{nearest\_neighbor}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{nearest\_neighbor()}{nearest\_neighbor()}}
+{\footnotesize\ttfamily std\+::vector$<$ int $>$ Graph\+::nearest\+\_\+neighbor (\begin{DoxyParamCaption}\item[{int}]{start }\end{DoxyParamCaption})}
+
+
+
+Applies the Nearest Neighbor heuristic to find an approximate solution for the TSP starting from a given vertex. 
+
+Time Complexity\+: O(\+V$^\wedge$2), V = number of vertices 
+\begin{DoxyParams}{Parameters}
+{\em start} & The identifier of the starting vertex. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The approximate TSP path. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a13cf3efcacfb62d22e443a1146439ad8}\label{class_graph_a13cf3efcacfb62d22e443a1146439ad8}} 
+\index{Graph@{Graph}!prim\_mst@{prim\_mst}}
+\index{prim\_mst@{prim\_mst}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{prim\_mst()}{prim\_mst()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ int, int $>$ $>$ Graph\+::prim\+\_\+mst (\begin{DoxyParamCaption}\item[{std\+::vector$<$ int $>$ \&}]{parent }\end{DoxyParamCaption})}
+
+
+
+Applies Prim\textquotesingle{}s algorithm to find a minimum spanning tree of the graph. 
+
+Time Complexity\+: O((V+E) $\ast$ log(\+V)), E = number of edges, V = number of vertices 
+\begin{DoxyParams}{Parameters}
+{\em parent} & The output vector to store the parent vertices of the minimum spanning tree. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The list of edges in the minimum spanning tree. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_aa66282e7599c1c36f9cca5e4f87bb354}\label{class_graph_aa66282e7599c1c36f9cca5e4f87bb354}} 
+\index{Graph@{Graph}!total\_distance@{total\_distance}}
+\index{total\_distance@{total\_distance}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{total\_distance()}{total\_distance()}}
+{\footnotesize\ttfamily double Graph\+::total\+\_\+distance (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Calculates the total distance of a given path in the graph. 
+
+Time Complexity\+: O(n $\ast$ (V + E)), n = number of vertices in the input path, V = number of vertices in the whole graph, E = number of edges in the whole graph 
+\begin{DoxyParams}{Parameters}
+{\em path} & The path represented as a vector of vertex identifiers. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The total distance of the path. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_graph_a3bf9a9bb9faac4a8e8766703d3afc53d}\label{class_graph_a3bf9a9bb9faac4a8e8766703d3afc53d}} 
+\index{Graph@{Graph}!triangular\_approximation@{triangular\_approximation}}
+\index{triangular\_approximation@{triangular\_approximation}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{triangular\_approximation()}{triangular\_approximation()}}
+{\footnotesize\ttfamily double Graph\+::triangular\+\_\+approximation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Applies the Triangular Approximation algorithm to find an approximate solution for the TSP. 
+
+Time Complexity\+: O((V+E) $\ast$ log(\+V)), E = number of edges, V = number of vertices \begin{DoxyReturn}{Returns}
+The total distance of the approximate TSP solution. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_graph_a3111bb6cc59aedbc4290ed1b37668336}\label{class_graph_a3111bb6cc59aedbc4290ed1b37668336}} 
+\index{Graph@{Graph}!directed@{directed}}
+\index{directed@{directed}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{directed}{directed}}
+{\footnotesize\ttfamily bool Graph\+::directed\hspace{0.3cm}{\ttfamily [protected]}}
+
+Flag indicating whether the graph is directed. \mbox{\Hypertarget{class_graph_a9fa843bf71c00e4b3031e9b8802cdadf}\label{class_graph_a9fa843bf71c00e4b3031e9b8802cdadf}} 
+\index{Graph@{Graph}!edgeCount@{edgeCount}}
+\index{edgeCount@{edgeCount}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{edgeCount}{edgeCount}}
+{\footnotesize\ttfamily int Graph\+::edge\+Count\hspace{0.3cm}{\ttfamily [protected]}}
+
+The number of edges in the graph. \mbox{\Hypertarget{class_graph_a0583ecac13f1465392df14af10301edf}\label{class_graph_a0583ecac13f1465392df14af10301edf}} 
+\index{Graph@{Graph}!vertexMap@{vertexMap}}
+\index{vertexMap@{vertexMap}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{vertexMap}{vertexMap}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$int, \mbox{\hyperlink{structvertex_node}{vertex\+Node}}$>$ Graph\+::vertex\+Map\hspace{0.3cm}{\ttfamily [protected]}}
+
+Unordered map of vertices in the graph. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/data\+Structures/graph.\+h\item 
+src/data\+Structures/graph.\+cpp\end{DoxyCompactItemize}
