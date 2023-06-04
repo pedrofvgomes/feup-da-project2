@@ -263,9 +263,9 @@ void Menu::drawAlgorithmsMenu() {
     std::cout << "========= ALGORITHMS =========";
     std::cout << "\n\nSELECTED GRAPH: " << graphname;
     std::cout << "\n\n===== CHOOSE AN ALGORITHM =====";
-    std::cout << "\n\n1) Triangular Approximation";
-    std::cout << "\n\n2) Nearest Neighbor";
-    std::cout << "\n\n3) Backtracking";
+    std::cout << "\n\n1) Backtracking";
+    std::cout << "\n\n2) Triangular Approximation";
+    std::cout << "\n\n3) Nearest Neighbor";
     std::cout << "\n\n\n0) Go back";
     std::cout << "\n\n--> ";
     std::cin >> choice;
@@ -296,11 +296,11 @@ void Menu::executeAlgorithm(int choice) {
     std::vector<int> path;
 
     switch (choice) {
-        case 1:
+        case 2:
             val = this->graph.triangular_approximation();
             end_time = clock();
             break;
-        case 2: {
+        case 3: {
             std::unordered_map<int, vertexNode> vertices = this->graph.getVertices();
             min_cost = std::numeric_limits<double>::max();
             std::vector<int> min_path;
@@ -319,7 +319,7 @@ void Menu::executeAlgorithm(int choice) {
             val = this->graph.total_distance(min_path);
             break;
         }
-        case 3: {
+        case 1: {
             min_cost = std::numeric_limits<double>::max();
             path = {0};
             std::vector<bool> visited(this->graph.getVertexCount(), false);
