@@ -1,6 +1,11 @@
 #include "menu.h"
-#include <iostream>
+#include <filesystem>
+
 using namespace std;
+
+Menu::Menu() {
+    this->state = 0;
+}
 
 void Menu::start() {
     int choice = 0;
@@ -45,6 +50,7 @@ void Menu::drawState() {
 }
 
 void Menu::drawToyMenu(){
+
     int choice = 0;
 
     system("cls");
@@ -66,8 +72,16 @@ void Menu::drawToyMenu(){
         case 0:
             start();
             break;
+        case 1:
+            readData("../../data/Toy-Graphs/shipping.csv", true, false, false, true);
+            break;
+        case 2:
+            readData("../../data/Toy-Graphs/stadiums.csv", true, false, false, true);
+            break;
+        case 3:
+            readData("../../data/Toy-Graphs/tourism.csv", true, true, false, true);
+            break;
         default:
-            // readGraph({1, choice});
             break;
     }
 }
@@ -79,7 +93,6 @@ void Menu::drawRealMenu() {
     cout << "\n\n=== SELECT A GRAPH ===";
     cout << "\n\n1) Graph 1";
     cout << "\n\n2) Graph 2";
-    cout << "\n\n3) Graph 3";
     cout << "\n\n\n0) Go back";
     cout << "\n\n--> ";
     cin >> choice;
@@ -93,8 +106,15 @@ void Menu::drawRealMenu() {
         case 0:
             start();
             break;
+        case 1:
+            readData("../../data/Real-world Graphs/graph1/edges.csv", true, false, false, true);
+            readData("../../data/Real-world Graphs/graph1/nodes.csv", true, false, true, false);
+            break;
+        case 2:
+            readData("../../data/Real-world Graphs/graph2/edges.csv", true, false, false, true);
+            readData("../../data/Real-world Graphs/graph2/nodes.csv", true, false, true, false);
+            break;
         default:
-            // readGraph({2, choice});
             break;
     }
 }
@@ -129,8 +149,82 @@ void Menu::drawExtraMenu() {
         case 0:
             start();
             break;
+        case 1:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_25.csv", false, false, false, true);
+            break;
+        case 2:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_50.csv", false, false, false, true);
+            break;
+        case 3:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_75.csv", false, false, false, true);
+            break;
+        case 4:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_100.csv", false, false, false, true);
+            break;
+        case 5:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_200.csv", false, false, false, true);
+            break;
+        case 6:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_300.csv", false, false, false, true);
+            break;
+        case 7:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_400.csv", false, false, false, true);
+            break;
+        case 8:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_500.csv", false, false, false, true);
+            break;
+        case 9:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_600.csv", false, false, false, true);
+            break;
+        case 10:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_700.csv", false, false, false, true);
+            break;
+        case 11:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_800.csv", false, false, false, true);
+            break;
+        case 12:
+            readData("../../data/Extra_Fully_Connected_Graphs/edges_900.csv", false, false, false, true);
+            break;
         default:
-            // readGraph({3, choice});
             break;
     }
+}
+
+void Menu::readData(const std::string& filename, bool header, bool label, bool nodes, bool newgraph) {
+    cout << "Loading..." << endl;
+
+    if(newgraph) this->graph = Graph(true);
+
+    std::string a, b, distance, alabel, blabel, line;
+
+    std::ifstream input(filename);
+
+    if(header) getline(input, line);
+
+    while(getline(input, line)){
+        std::stringstream ss(line);
+
+        getline(ss, a, ',');
+        getline(ss, b, ',');
+        getline(ss, distance, ',');
+        if(label){
+            getline(ss, alabel, ',');
+            getline(ss, blabel, ',');
+        }
+
+        if(line.back() == '\r' || line.back() == '\n') line.pop_back();
+
+        this->graph.addVertex(std::stoi(a), nodes ? std::stoi(b) : 0, nodes? std::stoi(distance) : 0, label ? alabel : "");
+        if(!nodes){
+            this->graph.addVertex(std::stoi(b), 0, 0, label ? blabel : "");
+            this->graph.addEdge(std::stoi(a), std::stoi(b), std::stoi(distance));
+            this->graph.addEdge(std::stoi(b), std::stoi(a), std::stoi(distance));
+        }
+    }
+
+
+    cout << "Reading complete\n" << filename << endl << graph.getEdgeCount() << endl;
+
+    int n;
+    cin >> n;
 }
