@@ -1,40 +1,21 @@
 #include "menu.h"
 #include <filesystem>
 
-using namespace std;
-
 Menu::Menu() {
     this->state = 0;
 }
-
-void Menu::start() {
-    int choice = 0;
-
-    system("cls");
-    cout << "========= MAIN MENU =========";
-    cout << "\n\n=== SELECT THE GRAPH TYPE ===";
-    cout << "\n\n1) Toy Graphs";
-    cout << "\n\n2) Real World Graphs";
-    cout << "\n\n3) Extra Medium-Sized Graphs";
-    cout << "\n\n\n0) Quit";
-    cout << "\n\n--> ";
-    cin >> choice;
-
-    while(choice < 0 || choice > 3){
-        cout << "Please enter a valid option\n--> ";
-        cin >> choice;
-    }
-
-    setState(choice);
-    drawState();
+int Menu::getState() const{
+    return this->state;
 }
-
 void Menu::setState(int state) {
     this->state = state;
 }
 
 void Menu::drawState() {
     switch (state) {
+        case 0:
+            drawStartMenu();
+            break;
         case 1:
             drawToyMenu();
             break;
@@ -44,9 +25,35 @@ void Menu::drawState() {
         case 3:
             drawExtraMenu();
             break;
+        case 4:
+            drawAlgorithmsMenu();
+            break;
         default:
             break;
     }
+}
+
+void Menu::drawStartMenu() {
+    int choice = 0;
+
+    system("cls");
+    std::cout << "========= MAIN MENU =========";
+    std::cout << "\n\n=== SELECT THE GRAPH TYPE ===";
+    std::cout << "\n\n1) Toy Graphs";
+    std::cout << "\n\n2) Real World Graphs";
+    std::cout << "\n\n3) Extra Medium-Sized Graphs";
+    std::cout << "\n\n\n0) Quit";
+    std::cout << "\n\n--> ";
+    std::cin >> choice;
+
+    while(choice < 0 || choice > 3){
+        std::cout << "Please enter a valid option\n--> ";
+        std::cin >> choice;
+    }
+
+    setState(choice);
+    if(!choice) setState(-1);
+    drawState();
 }
 
 void Menu::drawToyMenu(){
@@ -54,23 +61,23 @@ void Menu::drawToyMenu(){
     int choice = 0;
 
     system("cls");
-    cout << "========= TOY GRAPHS =========";
-    cout << "\n\n=== SELECT A GRAPH ===";
-    cout << "\n\n1) Shipping";
-    cout << "\n\n2) Stadiums";
-    cout << "\n\n3) Tourism";
-    cout << "\n\n\n0) Go back";
-    cout << "\n\n--> ";
-    cin >> choice;
+    std::cout << "========= TOY GRAPHS =========";
+    std::cout << "\n\n=== SELECT A GRAPH ===";
+    std::cout << "\n\n1) Shipping";
+    std::cout << "\n\n2) Stadiums";
+    std::cout << "\n\n3) Tourism";
+    std::cout << "\n\n\n0) Go back";
+    std::cout << "\n\n--> ";
+    std::cin >> choice;
 
     while(choice < 0 || choice > 3){
-        cout << "Please enter a valid option\n--> ";
-        cin >> choice;
+        std::cout << "Please enter a valid option\n--> ";
+        std::cin >> choice;
     }
 
     switch (choice) {
         case 0:
-            start();
+            setState(0);
             break;
         case 1:
             readData("../../data/Toy-Graphs/shipping.csv", true, false, false, true);
@@ -84,27 +91,28 @@ void Menu::drawToyMenu(){
         default:
             break;
     }
+    setState(!choice? 0 : 4);
 }
 void Menu::drawRealMenu() {
     int choice = 0;
 
     system("cls");
-    cout << "========= REAL WORLD GRAPHS =========";
-    cout << "\n\n=== SELECT A GRAPH ===";
-    cout << "\n\n1) Graph 1";
-    cout << "\n\n2) Graph 2";
-    cout << "\n\n\n0) Go back";
-    cout << "\n\n--> ";
-    cin >> choice;
+    std::cout << "========= REAL WORLD GRAPHS =========";
+    std::cout << "\n\n=== SELECT A GRAPH ===";
+    std::cout << "\n\n1) Graph 1";
+    std::cout << "\n\n2) Graph 2";
+    std::cout << "\n\n\n0) Go back";
+    std::cout << "\n\n--> ";
+    std::cin >> choice;
 
-    while(choice < 0 || choice > 3){
-        cout << "Please enter a valid option\n--> ";
-        cin >> choice;
+    while(choice < 0 || choice > 2){
+        std::cout << "Please enter a valid option\n--> ";
+        std::cin >> choice;
     }
 
     switch (choice) {
         case 0:
-            start();
+            setState(0);
             break;
         case 1:
             readData("../../data/Real-world Graphs/graph1/edges.csv", true, false, false, true);
@@ -117,38 +125,36 @@ void Menu::drawRealMenu() {
         default:
             break;
     }
+    setState(!choice? 0 : 4);
 }
 void Menu::drawExtraMenu() {
     int choice = 0;
 
     system("cls");
-    cout << "========= EXTRA MEDIUM-SIZED GRAPHS =========";
-    cout << "\n\n=== SELECT THE NUMBER OF NODES ===";
-    cout << "\n\n1) 25";
-    cout << "\n\n2) 50";
-    cout << "\n\n3) 75";
-    cout << "\n\n4) 100";
-    cout << "\n\n5) 200";
-    cout << "\n\n6) 300";
-    cout << "\n\n7) 400";
-    cout << "\n\n8) 500";
-    cout << "\n\n9) 600";
-    cout << "\n\n10) 700";
-    cout << "\n\n11) 800";
-    cout << "\n\n12) 900";
-    cout << "\n\n\n0) Go back";
-    cout << "\n\n--> ";
-    cin >> choice;
+    std::cout << "========= EXTRA MEDIUM-SIZED GRAPHS =========";
+    std::cout << "\n\n===== SELECT THE NUMBER OF NODES =====";
+    std::cout << "\n\n1) 25";
+    std::cout << "\n\n2) 50";
+    std::cout << "\n\n3) 75";
+    std::cout << "\n\n4) 100";
+    std::cout << "\n\n5) 200";
+    std::cout << "\n\n6) 300";
+    std::cout << "\n\n7) 400";
+    std::cout << "\n\n8) 500";
+    std::cout << "\n\n9) 600";
+    std::cout << "\n\n10) 700";
+    std::cout << "\n\n11) 800";
+    std::cout << "\n\n12) 900";
+    std::cout << "\n\n\n0) Go back";
+    std::cout << "\n\n--> ";
+    std::cin >> choice;
 
     while(choice < 0 || choice > 12){
-        cout << "Please enter a valid option\n--> ";
-        cin >> choice;
+        std::cout << "Please enter a valid option\n--> ";
+        std::cin >> choice;
     }
 
     switch (choice) {
-        case 0:
-            start();
-            break;
         case 1:
             readData("../../data/Extra_Fully_Connected_Graphs/edges_25.csv", false, false, false, true);
             break;
@@ -188,10 +194,11 @@ void Menu::drawExtraMenu() {
         default:
             break;
     }
+    setState(!choice? 0 : 4);
 }
 
 void Menu::readData(const std::string& filename, bool header, bool label, bool nodes, bool newgraph) {
-    cout << "Loading..." << endl;
+    std::cout << "\n\nLoading..." << std::endl;
 
     if(newgraph) this->graph = Graph(true);
 
@@ -217,14 +224,102 @@ void Menu::readData(const std::string& filename, bool header, bool label, bool n
         this->graph.addVertex(std::stoi(a), nodes ? std::stoi(b) : 0, nodes? std::stoi(distance) : 0, label ? alabel : "");
         if(!nodes){
             this->graph.addVertex(std::stoi(b), 0, 0, label ? blabel : "");
-            this->graph.addEdge(std::stoi(a), std::stoi(b), std::stoi(distance));
-            this->graph.addEdge(std::stoi(b), std::stoi(a), std::stoi(distance));
+            this->graph.addEdge(std::stoi(a), std::stoi(b), std::stod(distance));
+            this->graph.addEdge(std::stoi(b), std::stoi(a), std::stod(distance));
         }
     }
 
 
-    cout << "Reading complete\n" << filename << endl << graph.getEdgeCount() << endl;
+    std::cout << "\nReading complete!\n\n0) Continue\n";
+    int n = 1;
+    while(n!=0){
+        std::cout << "--> ";
+        std::cin >> n;
+    }
 
-    int n;
-    cin >> n;
+}
+
+void Menu::drawAlgorithmsMenu() {
+    int choice = 0;
+
+    system("cls");
+    std::cout << "========= ALGORITHMS =========";
+    std::cout << "\n\n==== CHOOSE AN ALGORITHM ====";
+    std::cout << "\n\n1) Triangular Approximation";
+    std::cout << "\n\n2) Nearest Neighbor";
+    std::cout << "\n\n3) Backtracking";
+    std::cout << "\n\n\n0) Go back";
+    std::cout << "\n\n--> ";
+    std::cin >> choice;
+    while(choice < 0 || choice > 3){
+        std::cout << "Please enter a valid option\n--> ";
+        std::cin >> choice;
+    }
+
+    executeAlgorithm(choice);
+    if(choice){
+        std::cout << "0) Continue\n";
+        int n = 1;
+        while(n!=0){
+            std::cout << "--> ";
+            std::cin >> n;
+        }
+        if(!n){
+            setState(0);
+            drawState();
+        }
+    }
+}
+
+void Menu::executeAlgorithm(int choice) {
+    std::cout << "\nLoading... \n\n";
+    clock_t start_time = clock(), end_time;
+    double val, min_cost;
+    std::vector<int> path; // Declare the variable outside the switch statement
+
+    switch (choice) {
+        case 1:
+            val = this->graph.triangular_approximation();
+            end_time = clock();
+            break;
+        case 2: {
+            std::unordered_map<int, vertexNode> vertices = this->graph.getVertices();
+            min_cost = std::numeric_limits<double>::max();
+            std::vector<int> min_path;
+
+            for(int i=0; i<vertices.size(); i++) {
+                std::vector<int> current_path = this->graph.nearest_neighbor(i);
+                val = this->graph.total_distance(current_path);
+
+                if(val < min_cost){
+                    min_cost = val;
+                    min_path = current_path;
+                }
+            }
+
+            end_time = clock();
+            val = this->graph.total_distance(min_path);
+            break;
+        }
+        case 3: {
+            min_cost = std::numeric_limits<double>::max();
+            path = {0}; // Start from vertex 0
+            std::vector<bool> visited(this->graph.getVertexCount(), false);
+            visited[0] = true; // Mark the starting vertex as visited
+
+            // Call the recursive function to find the minimum cost Hamiltonian cycle
+            this->graph.backtrack_tsp(path, visited, min_cost, 0.0);
+
+            end_time = clock();
+            val = min_cost;
+            break;
+        }
+        case 0:
+            setState(0);
+            drawState();
+            return;
+    }
+
+    std::cout << "Minimum Distance: " << val << std::endl;
+    std::cout << "Execution Time: " << double(end_time-start_time) / CLOCKS_PER_SEC << " seconds\n\n";
 }

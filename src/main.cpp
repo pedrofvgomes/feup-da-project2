@@ -2,6 +2,7 @@
 
 int main(){
     Menu menu;
-    menu.start();
+    while(menu.getState() != -1)
+        menu.drawState();
     return 0;
 }

@@ -12,6 +12,20 @@
 
 #define EARTH_RADIUS (double) 6371000.0
 
+
+struct edgeNode{
+    int destVertex;
+    double distance;
+};
+struct vertexNode{
+    int vertex;
+    double latitude;
+    double longitude;
+    std::string label;
+
+    std::vector<edgeNode> adjacent;
+};
+
 class Graph{
 public:
     Graph(bool directed);
@@ -19,6 +33,7 @@ public:
     // get
     int getEdgeCount() const;
     int getVertexCount() const;
+    std::unordered_map<int, vertexNode> getVertices();
     bool isDirected() const;
     double getLatitude(int v);
     double getLongitude(int v);
@@ -42,25 +57,11 @@ public:
     bool are_nodes_connected(int a, int b);
     double haversine(double lat1, double lon1, double lat2, double lon2);
     double total_distance(const std::vector<int>& path);
-
-
+    std::vector<int> nearest_neighbor(int start);
 
 protected:
     bool directed;
     int edgeCount;
-
-    struct edgeNode{
-        int destVertex;
-        double distance;
-    };
-    struct vertexNode{
-        int vertex;
-        double latitude;
-        double longitude;
-        std::string label;
-
-        std::vector<edgeNode> adjacent;
-    };
 
     std::unordered_map<int, vertexNode> vertexMap;
 };

@@ -12,6 +12,9 @@ int Graph::getEdgeCount() const {
 int Graph::getVertexCount() const {
     return this->vertexMap.size();
 }
+std::unordered_map<int, vertexNode> Graph::getVertices() {
+    return this->vertexMap;
+}
 bool Graph::isDirected() const {
     return this->directed;
 }
@@ -113,7 +116,7 @@ void Graph::backtrack_tsp(std::vector<int>& path, std::vector<bool>& visited, do
             if(edge.destVertex == start){
                 double cycle_cost = current_cost + edge.distance;
                 if(cycle_cost < min_cost) min_cost = cycle_cost;
-                break;
+                // Don't break here to explore other potential paths
             }
         }
 
@@ -131,6 +134,7 @@ void Graph::backtrack_tsp(std::vector<int>& path, std::vector<bool>& visited, do
         }
     }
 }
+
 
 void Graph::dfs(int current, const std::vector<int> &parent, std::vector<bool> &visited, std::stack<int> &cityStack, std::vector<int> &path) {
     visited[current] = true;
@@ -163,7 +167,7 @@ double Graph::total_distance(const std::vector<int>& path){
             continue;
         }
 
-        for(const edgeNode& edge : vertexMap[b].adjacent){
+        for(const edgeNode& edge : vertexMap[a].adjacent){
             if(edge.destVertex == b){
                 total += edge.distance;
                 break;
@@ -172,7 +176,7 @@ double Graph::total_distance(const std::vector<int>& path){
     }
 
     int final_city = path.back();
-    if(are_nodes_connected(final_city, path[0])){
+    if(!are_nodes_connected(final_city, path[0])){
         total += haversine(vertexMap[final_city].latitude, vertexMap[final_city].longitude, vertexMap[path[0]].latitude, vertexMap[path[0]].longitude);
     }
     else for(const edgeNode& edge : vertexMap[final_city].adjacent){
@@ -234,4 +238,32 @@ double Graph::triangular_approximation(){
     dfs(0, parent, visited, cityStack, path);
 
     return total_distance(path);
+}
+
+std::vector<int> Graph::nearest_neighbor(int start) {
+    std::vector<int> path;
+    std::vector<bool> visited(vertexMap.size(), false);
+
+    int current = start;
+    path.push_back(current);
+    visited[current] = true;
+
+    while(path.size() < vertexMap.size()){
+        int next = -1;
+        double minimumDistance = std::numeric_limits<double>::max();
+
+        for(const auto &edge : vertexMap[current].adjacent)
+            if(!visited[edge.destVertex] && edge.distance < minimumDistance){
+                next = edge.destVertex;
+                minimumDistance = edge.distance;
+            }
+
+        if(next == -1) break;
+
+        path.push_back(next);
+        visited[next] = true;
+        current = next;
+    }
+
+    return path;
 }

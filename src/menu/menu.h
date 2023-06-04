@@ -15,13 +15,16 @@ class Menu{
 public:
     Menu();
 
-    void start();
+    int getState() const;
     void setState(int state);
     void drawState();
+    void drawStartMenu();
     void drawToyMenu();
     void drawRealMenu();
     void drawExtraMenu();
+    void drawAlgorithmsMenu();
     void readData(const std::string& filename, bool header, bool label, bool nodes, bool newgraph);
+    void executeAlgorithm(int choice);
 private:
     int state;
     Graph graph = Graph(true);
